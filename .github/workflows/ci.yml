@@ -1,0 +1,12 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the calculator
+        run: python3 -c "import calc; assert calc.add(2, 3) == 5; print('ok')"
