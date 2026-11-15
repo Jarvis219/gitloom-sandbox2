@@ -1,0 +1,16 @@
+name: GL test
+on:
+  workflow_dispatch:
+    inputs:
+      wait:
+        type: number
+        default: "45"
+        description: Seconds to sleep before finishing
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sleep "${{ inputs.wait }}"
+          python3 -c "print('L' * 12000)"
+          echo "README.md:1: GitLoom test line"
